@@ -77,7 +77,7 @@ export default {
   },
   data() {
     return {
-      accessToken: "pk.eyJ1IjoiY2Fzcy1tIiwiYSI6ImNrbW9qNm81NDBocHgyd2xobHUzdjFoYzAifQ.rf90kd8ytIrtLwVjU3OwKQ",
+      accessToken: "pk.eyJ1IjoiY2Fzcy1tIiwiYSI6ImNrbW9qM3F5bDBoZzAycGxoZmE5aXdoMWwifQ.672BmyQ9ouSrBbR5z7iJQg",
     };
   },
   mounted() {
@@ -85,30 +85,32 @@ export default {
 
     const map = new mapboxgl.Map({
       container: "mapContainer",
-      style: "mapbox://styles/mapbox/streets-v11",
-      center: [103.811279, 1.345399],
-      zoom: 12,
-      maxBounds: [
-        [103.6, 1.1704753],
-        [104.1, 1.4754753],
-      ],
+      style: "mapbox://styles/cass-m/ckmtv2tzx4e8817nk7ng9gve4",
+      // center: [103.811279, 1.345399],
+      center: [970, 40],
+      zoom: 4,
+      // maxBounds: [
+      //   [103.6, 1.1704753],
+      //   [104.1, 1.4754753],
+      // ],
     });
 
     const nav = new mapboxgl.NavigationControl();
 map.addControl(nav, "top-right");
 
 const marker = new mapboxgl.Marker()
-  marker.setLngLat([103.811279, 1.345399])
+  marker.setLngLat([38.041,-122.114])
   marker.addTo(map);
 
-  const geolocate = new mapboxgl.GeolocateControl({
-  positionOptions: {
-    enableHighAccuracy: true
-  },
-  trackUserLocation: true
-});
+//   const geolocate = new mapboxgl.GeolocateControl({
+//   positionOptions: {
+//     enableHighAccuracy: true
+//   },
+//   trackUserLocation: true
+// })
+// ;
 
-map.addControl(geolocate, "top-right")
+// map.addControl(geolocate, "top-right")
   },
 };
 
@@ -118,5 +120,10 @@ map.addControl(geolocate, "top-right")
 .basemap {
   width: 80%;
   height: 500px;
+  background-color: black;
+}
+
+h1 {
+  margin: 0px;
 }
 </style>
