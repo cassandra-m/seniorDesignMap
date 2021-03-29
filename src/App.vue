@@ -2,7 +2,7 @@
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <BaseMap msg="HIIIII"/>
+    <BaseMap msg="Project Gaea"/>
   </div>
 </template>
 
@@ -24,12 +24,12 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #5856d6ff;
   /* margin-top: 60px; */
   padding: 0;
   margin: 0;
   width: 100%;
   min-height: 100vh;
-  background-color: black;
+  background-color: #1C1C1E;
 }
 </style>

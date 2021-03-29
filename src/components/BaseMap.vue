@@ -62,9 +62,12 @@ a {
 -->
 
 <template>
+<div class="outerMap">
+  <h1>{{ msg }}</h1>
   <div id="mapContainer" class="basemap">
-    <h1>{{ msg }}</h1>
+    <!-- <h1>{{ msg }}</h1> -->
   </div>
+</div>
 </template>
 
 <script>
@@ -120,10 +123,19 @@ const marker = new mapboxgl.Marker()
 .basemap {
   width: 80%;
   height: 500px;
-  background-color: black;
+  background-color: #1C1C1E;
+  margin-left: 10%;
 }
 
-h1 {
-  margin: 0px;
+.outerMap {
+  // margin: 0px;
+  background-color: #1C1C1E;
+  color: #0a84ffff;
+  padding: 5px;
+
+  text-shadow: 2px 2px rgb(7, 77, 146);
+  font-family: Consolas, Papyrus, Avenir, Helvetica, Arial, sans-serif;
+  text-align: center;
+  font-size: 20px;
 }
 </style>
