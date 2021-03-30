@@ -62,12 +62,20 @@ a {
 -->
 
 <template>
-<div class="outerMap">
-  <h1>{{ msg }}</h1>
-  <div id="mapContainer" class="basemap">
+  <div class="outerMap">
+    <h1>{{ msg }}</h1>
+    <div class="dropdown">
+      <button v-on:click="myFunction()" class="dropbtn">Search</button>
+      <div id="myDropdown" class="dropdown-content">
+        <a href="#masks">Masks</a>
+        <a href="#filters">Filters</a>
+        <a href="#fans">Fans</a>
+      </div>
+    </div>
+    <div id="mapContainer" class="basemap">
     <!-- <h1>{{ msg }}</h1> -->
+    </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -77,6 +85,11 @@ export default {
   name: "BaseMap",
   props: {
     msg: String
+  },
+  methods: {
+      myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
   },
   data() {
     return {
@@ -101,9 +114,9 @@ export default {
     const nav = new mapboxgl.NavigationControl();
 map.addControl(nav, "top-right");
 
-const marker = new mapboxgl.Marker()
-  marker.setLngLat([38.041,-122.114])
-  marker.addTo(map);
+// const marker = new mapboxgl.Marker()
+//   marker.setLngLat([40,-90])
+//   marker.addTo(map);
 
 //   const geolocate = new mapboxgl.GeolocateControl({
 //   positionOptions: {
@@ -116,6 +129,20 @@ const marker = new mapboxgl.Marker()
 // map.addControl(geolocate, "top-right")
   },
 };
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
 
 </script>
 
@@ -138,4 +165,54 @@ const marker = new mapboxgl.Marker()
   text-align: center;
   font-size: 20px;
 }
+
+
+.dropdown {
+  float: left;
+  font-family: Consolas, Arial, Helvetica, sans-serif;
+  text-shadow: 0px 0px white;
+  font-size: 20px;
+  text-align: left;
+}
+.dropbtn {
+  background-color: rgb(4, 102, 201);
+  color: rgb(221, 232, 243);
+  padding: 4px;
+  font-size: 23px;
+  border: none;
+  cursor: pointer;
+  /* margin-left: 100px; */
+  font-family: Consolas, Papyrus;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-left: 15%;
+}
+.dropbtn:hover, .dropbtn:focus {
+  background-color: rgb(5, 63, 121);
+}
+/* .dropdown {
+  position: relative;
+  display: inline-block;
+} */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgb(47, 129, 211);
+  min-width: 140px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(95, 146, 197, 0.2);
+  z-index: 1;
+  font-size: 20px;
+  text-align: left;
+  font-family: Consolas, Papyrus;
+}
+.dropdown-content a {
+  color: rgb(221, 232, 243);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown a:hover {background-color: rgb(104, 153, 202);}
+.show {display: block;}
+
 </style>
