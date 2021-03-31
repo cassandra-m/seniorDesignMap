@@ -40,11 +40,11 @@ export default {
 /* stuff below added for air quality link */
 #nav a {
   font-weight: bold;
-  color: purple;
+  color: #4da3ff;
 }
 
 #nav a.router-link-exact-active {
-  color: yellow;
+  color: rgb(158, 6, 158); /*could also try indianred*/
 }
 
 </style>

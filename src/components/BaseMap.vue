@@ -64,13 +64,13 @@ a {
 <template>
   <div class="outerMap">
     <!-- addition for air quality begin -->
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link>
       <router-link target="_blank" to="/airquality">Air Quality</router-link>
-    </div>
+    </div> -->
     <!-- addition for air quality end -->
     <h1>{{ msg }}</h1>
-    <div class="dropdown">
+    <!-- <div class="dropdown">
       <button v-on:click="myFunction()" class="dropbtn">Search</button>
       <div id="myDropdown" class="dropdown-content">
         <a href="#masks">Masks</a>
@@ -79,8 +79,8 @@ a {
       </div>
     </div>
     <div id="mapContainer" class="basemap">
-    <!-- <h1>{{ msg }}</h1> -->
-    </div>
+    </div> -->
+    <img src="../assets/penn_logo.png">
   </div>
 </template>
 
@@ -153,24 +153,24 @@ window.onclick = function(event) {
 </script>
 
 <style lang="scss" scoped>
-.basemap {
-  width: 80%;
-  height: 500px;
-  background-color: #1C1C1E;
-  margin-left: 10%;
-}
+// .basemap {
+//   width: 80%;
+//   height: 500px;
+//   background-color: #1C1C1E;
+//   margin-left: 10%;
+// }
 
 .outerMap {
   // margin: 0px;
   background-color: #1C1C1E;
   // color: #0a84ffff;
   color: #b3d7ff;
-  padding: 5px;
+  padding: 1px;
 
   text-shadow: 2px 2px rgb(7, 77, 146);
   font-family: Calibri Light, Verdana, Consolas, Papyrus, Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
-  font-size: 20px;
+  font-size: 24px;
 }
 
 
@@ -224,12 +224,22 @@ window.onclick = function(event) {
 
 
 // air quality stuff
-nav li.router-link-exact-active {
-  background-color: indianred;
-}
+// nav li.router-link-exact-active {
+//   background-color: indianred;
+// }
 
-a {
-  text-decoration: none;
+// a {
+//   text-decoration: none;
+// }
+
+
+.outerMap img {
+  padding: 20px;
+  position: absolute;
+  left: 45%;
+  bottom: 0;
+  height: 38px; //original 180
+  width: 110px; //original 517 => factor of 2.87
 }
 
 </style>
