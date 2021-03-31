@@ -63,6 +63,12 @@ a {
 
 <template>
   <div class="outerMap">
+    <!-- addition for air quality begin -->
+    <div id="nav">
+      <router-link to="/">Home</router-link>
+      <router-link target="_blank" to="/airquality">Air Quality</router-link>
+    </div>
+    <!-- addition for air quality end -->
     <h1>{{ msg }}</h1>
     <div class="dropdown">
       <button v-on:click="myFunction()" class="dropbtn">Search</button>
@@ -157,11 +163,12 @@ window.onclick = function(event) {
 .outerMap {
   // margin: 0px;
   background-color: #1C1C1E;
-  color: #0a84ffff;
+  // color: #0a84ffff;
+  color: #b3d7ff;
   padding: 5px;
 
   text-shadow: 2px 2px rgb(7, 77, 146);
-  font-family: Consolas, Papyrus, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Calibri Light, Verdana, Consolas, Papyrus, Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
   font-size: 20px;
 }
@@ -214,5 +221,15 @@ window.onclick = function(event) {
 }
 .dropdown a:hover {background-color: rgb(104, 153, 202);}
 .show {display: block;}
+
+
+// air quality stuff
+nav li.router-link-exact-active {
+  background-color: indianred;
+}
+
+a {
+  text-decoration: none;
+}
 
 </style>

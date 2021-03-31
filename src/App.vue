@@ -3,6 +3,10 @@
     <!-- <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <BaseMap msg="Project Gaea"/>
+
+    <!-- single line below added for air quality link -->
+    <router-view/>
+
   </div>
 </template>
 
@@ -32,4 +36,15 @@ export default {
   min-height: 100vh;
   background-color: #1C1C1E;
 }
+
+/* stuff below added for air quality link */
+#nav a {
+  font-weight: bold;
+  color: purple;
+}
+
+#nav a.router-link-exact-active {
+  color: yellow;
+}
+
 </style>
