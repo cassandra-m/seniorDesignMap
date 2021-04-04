@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import AirQuality from '../views/AirQuality.vue'
+import AirQualitySearch from '../views/AirQualitySearch.vue'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
+import AirQuality from '../views/AirQuality.vue'
 
 Vue.use(VueRouter)
 
@@ -12,14 +13,19 @@ const routes = [{
     component: Home
 },
 {
-    path: '/airquality',
-    name: 'AirQuality',
-    component: AirQuality
+    path: '/airQualitySearch',
+    name: 'AirQualitySearch',
+    component: AirQualitySearch
 },
 {
     path: '/about',
     name: 'About',
     component: About
+},
+{
+    path: '/airQuality',
+    name: 'AirQuality',
+    component: AirQuality
 }
 ]
 

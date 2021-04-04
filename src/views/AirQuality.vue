@@ -1,10 +1,12 @@
 <template>
     <div class="airQuality">
-        <h3 class="text-center">Air Pollution Risk</h3>
-
+        <h2 class="text-center">Air Pollution Risk</h2>
       
       <!-- <div class="columns medium-4" > -->
-        <h4>Current Air Quality by ZIP</h4>
+        <!-- <h3>Current Air Quality by ZIP</h3> -->
+         <h3>Current Air Quality for ZIP Code "{{zipcodeComputed}}"</h3>
+         <!-- cass did above -->
+        
         <textarea v-model="airDataString" rows="50" cols="50" autofocus>
 
         </textarea>
@@ -23,11 +25,13 @@
 
 export default {
     name: 'AirQuality',
+    props: ['zip'], //cass did
 
     data() {
         return {
             airDataString: String,
-            airQuality: []
+            airQuality: [],
+            zipcode: this.$route.params.id //cass did
         };
     },
 
@@ -38,6 +42,9 @@ export default {
     },
 
     computed: {
+        zipcodeComputed() { //cass did
+            return this.$route.query.zip;
+        },
         parameters(){
             return Object.values(this.airQuality).map(({
                 stations
@@ -52,10 +59,8 @@ export default {
         this.$axios.request(optionsair).then(response => {
             this.airDataString = JSON.stringify(response.data, null, "\t");
             this.airQuality = response.data;
-            console.log(this.listDataString);
+            // console.log(this.listDataString);
             return response; 
-            // this.results = response.data;
-            // console.log("something");
         })
     }
 };
@@ -67,13 +72,16 @@ const apikey = 'N4rk05Lsxs6pG7FfzqYl18newiD5aJZB6zReT8Pn';
 var optionsair = {
   method: 'GET',
   url: 'https://api.ambeedata.com/latest/by-postal-code',
-  params: {postalCode: '90250', countryCode: 'US'},
+  params: {postalCode: '90250', countryCode: 'US'}, //postal code 90250
   headers: {'x-api-key': apikey, 'Content-type': 'application/json'}
 };
 </script>
 
 <style scoped>
 .airQuality {
-    color: white;
+    color: #cce5ff;
+}
+.airQuality h3 {
+    color: #e6f2ff;
 }
 </style>

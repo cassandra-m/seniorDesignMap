@@ -44,7 +44,7 @@ export default {
 }
 
 #nav a.router-link-exact-active {
-  color: rgb(158, 6, 158); /*could also try indianred*/
+  color: rgb(240, 48, 240); /*could also try indianred*/
 }
 
 </style>
