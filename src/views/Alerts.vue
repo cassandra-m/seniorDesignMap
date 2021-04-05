@@ -1,11 +1,23 @@
 <template>
     <div class="alertsPage">
         <h2>National Weather Alerts</h2>
-        <ul class="statesUl">
-            <li class="statesLi" v-for="(item, index) in states" v-bind:key="index" 
-            v-on:click="setState(item)">{{item}}</li>
-        </ul>
-        <h3>Showing alerts for: {{selectedState}}</h3>
+
+        <div id="statesSelection">
+            <label> Select state:<br/>
+            <input type="text" v-model="selected" list="state" />
+            <datalist id="state" >
+                <select>
+                    <option v-for="(stateOpt, indx) in states" :value="stateOpt" v-bind:key="indx" 
+                    v-on:click="setState(stateOpt)">
+                    {{ stateOpt }}
+                    </option>
+                </select>
+            </datalist>
+            </label>
+            <p>{{stateSelected}}</p>
+        </div>
+
+        <h3>Showing alerts for {{selectedState}}</h3>
         <ul class="alertsUl">
             <li class = "alertsLi" v-for="(item, index) in result" v-bind:key="index">{{item}}</li>
         </ul>
@@ -16,12 +28,12 @@
 <script>
 
 export default {
-    name: 'Alerts',
+    name: 'Alerts', //cass added
     data() {
         return {
             responseAvailable: false,
             apiKey: '<YOUR_RAPIDAPI_KEY>',
-            selectedState: 'CA',
+            selectedState: 'CA', //cass note to self need to have this start out blank
             states : [ "AK",
                         "AL",
                         "AR",
@@ -76,9 +88,19 @@ export default {
                         "WA",
                         "WI",
                         "WV",
-                        "WY"]
+                        "WY"],
+                    selected: '', //cass added
+                    result: ''
         }
     },
+
+// cass added
+computed: {
+        stateSelected() {
+            return this.states.find( i => i.value == this.selected );
+        }
+    },
+
     methods: {
         fetchAPIData( ) { 
             this.responseAvailable = false;
@@ -137,6 +159,10 @@ export default {
 -->
 
 <style scoped>
+
+    .alertsPage {
+        font-family: Calibri Light, Verdana, Consolas, Papyrus, Avenir, Helvetica, Arial, sans-serif;
+    }
     
     .alertsPage h2 {
     color: #cce5ff;
@@ -146,34 +172,29 @@ export default {
         color: #e6f2ff;
     }
 
-    .statesLi {
-        display: inline;
-        /* margin: 1.75rem 0;
-        padding-left: 1rem;  */
-        padding-right: 10px;
-    }
-
-    .statesUl {
-        display: inline;
-        border: solid 1px white;
-        padding: 1px;
-        margin: 1px;
-        background-color: #e5ebd4;
+    .alertsPage label {
+        color: #e6f2ff;
     }
 
     .alertsUl {
         counter-reset: gradient-counter;
         list-style: none;
-        margin-left: 0; 
+        margin-left: 5%; 
+        margin-right: 5%; 
         padding-left: 0;
+        padding-right: 0;
     }
 
     .alertsLi {
-        border: solid 1px white;
+        border: solid 1px #cce5ff;
         padding: 5px;
         margin: 5px;
-        background-color: #ddc6b7;
+        background-color: #e6f2ff;
         position: relative;
+        color: #1a89ff;
+        font-size: 20px;
+        font-weight: 600;
+        font-family: Calibri Light, Verdana, Consolas, Papyrus, Avenir, Helvetica, Arial, sans-serif;
     }
 
 </style>
