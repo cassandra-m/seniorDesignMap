@@ -4,6 +4,7 @@ import AirQualitySearch from '../views/AirQualitySearch.vue'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import AirQuality from '../views/AirQuality.vue'
+import Alerts from '../views/Alerts.vue'
 
 Vue.use(VueRouter)
 
@@ -26,6 +27,11 @@ const routes = [{
     path: '/airQuality',
     name: 'AirQuality',
     component: AirQuality
+},
+{
+    path: '/alerts',
+    name: 'Alerts',
+    component: Alerts
 }
 ]
 

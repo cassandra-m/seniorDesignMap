@@ -90,7 +90,8 @@ a {
     <!-- addition for air quality begin -->
     <div id="nav" class="links">
       <router-link to="/">Home |</router-link>
-      <router-link target="_blank" to="/airQualitySearch"> Air Quality </router-link>
+      <router-link target="_blank" to="/airQualitySearch"> Air Quality |</router-link>
+      <router-link target="_blank" to="/alerts"> Alerts </router-link>
       <router-link target="_blank" to="/about">| About</router-link>
     </div>
     <!-- addition for air quality end -->
@@ -258,7 +259,7 @@ a {
 }
 
 .links {
-    margin-left: 80%;
+    margin-left: 77%;
 }
 
 .links router-link:active {
