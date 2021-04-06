@@ -166,11 +166,10 @@ window.onclick = function(event) {
   // margin: 0px;
   background-color: #1C1C1E;
   // color: #0a84ffff;
-  color: #b3d7ff;
+  color: #007bff; //#1a89ff
   padding: 1px;
-
   text-shadow: 2px 2px rgb(7, 77, 146);
-  font-family: Calibri Light, Verdana, Consolas, Papyrus, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Verdana, Consolas, Papyrus, Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
   font-size: 24px;
 }
@@ -178,7 +177,7 @@ window.onclick = function(event) {
 
 .dropdown {
   float: left;
-  font-family: Consolas, Arial, Helvetica, sans-serif;
+  font-family: Verdana, Calibri Light, Consolas, Arial, Helvetica, sans-serif;
   text-shadow: 0px 0px white;
   font-size: 20px;
   text-align: left;
@@ -191,7 +190,7 @@ window.onclick = function(event) {
   border: none;
   cursor: pointer;
   /* margin-left: 100px; */
-  font-family: Consolas, Papyrus;
+  font-family: Verdana, Consolas, Papyrus;
   font-weight: bold;
   border-radius: 5px;
   margin-left: 15%;
@@ -213,7 +212,7 @@ window.onclick = function(event) {
   z-index: 1;
   font-size: 20px;
   text-align: left;
-  font-family: Consolas, Papyrus;
+  font-family: Verdana, Consolas, Papyrus;
 }
 .dropdown-content a {
   color: rgb(221, 232, 243);

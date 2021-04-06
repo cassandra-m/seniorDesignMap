@@ -189,7 +189,7 @@ computed: {
 <style scoped>
 
     .alertsPage {
-        font-family: Calibri Light, Verdana, Consolas, Papyrus, Avenir, Helvetica, Arial, sans-serif;
+        font-family: Verdana, Calibri Light, Consolas, Papyrus, Avenir, Helvetica, Arial, sans-serif;
     }
     
     .alertsPage h2 {

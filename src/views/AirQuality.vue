@@ -80,8 +80,10 @@ var optionsair = {
 <style scoped>
 .airQuality {
     color: #cce5ff;
+    font-family: Verdana;
 }
 .airQuality h3 {
+    font-family: Verdana;
     color: #e6f2ff;
 }
 </style>

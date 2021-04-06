@@ -88,6 +88,8 @@ a {
 <template>
   <div class="outerMap">
     <!-- addition for air quality begin -->
+    <h1>{{ msg }}</h1>
+    <h3>everything you need to protect yourself during a natural disaster</h3>
     <div id="nav" class="links">
       <router-link to="/">Home |</router-link>
       <router-link target="_blank" to="/airQualitySearch"> Air Quality |</router-link>
@@ -95,14 +97,15 @@ a {
       <router-link target="_blank" to="/about">| About</router-link>
     </div>
     <!-- addition for air quality end -->
-    <h1>{{ msg }}</h1>
+    <!-- <h1>{{ msg }}</h1>
+    <h3>everything you need to protect yourself during a natural disaster</h3> -->
     
     <div class="dropdown">
       <button v-on:click="myFunction()" class="dropbtn">Search</button>
       <div id="myDropdown" class="dropdown-content">
         <a href="#masks">Masks</a>
-        <a href="#filters">Filters</a>
-        <a href="#fans">Fans</a>
+        <a href="#filters">Purifiers</a>
+        <a href="#fans">Protection</a>
       </div>
     </div>
 
@@ -111,10 +114,23 @@ a {
 <iframe style="width:110px;height:200px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=qf_sp_asin_til&ad_type=product_link&tracking_id=projectgaea21-20&marketplace=amazon&amp;region=US&placement=B08V59764B&asins=B08V59764B&linkId=a901b50219778f046082de3c78089a19&show_border=true&link_opens_in_new_window=true&price_color=e62525&title_color=133e66&bg_color=faf2f2">
     </iframe>
 </div>
-<div class="amazonRightItem">
+
+
+<div class="amazonLeftTop">
+<iframe style="width:110px;height:200px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=qf_sp_asin_til&ad_type=product_link&tracking_id=projectgaea21-20&marketplace=amazon&amp;region=US&placement=B000FJQQVI&asins=B000FJQQVI&linkId=98d2b6afd560da1df0937a8e0063f40f&show_border=true&link_opens_in_new_window=true&price_color=e62525&title_color=133e66&bg_color=f5f5f5">
+    </iframe>
+    </div>
+
+
+<div class="amazonRightTop">
     <iframe style="width:110px;height:200px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=qf_sp_asin_til&ad_type=product_link&tracking_id=projectgaea21-20&marketplace=amazon&amp;region=US&placement=B07T9PQ5J7&asins=B07T9PQ5J7&linkId=f9df6a1fe73d067b2b9645ff9d071835&show_border=true&link_opens_in_new_window=true&price_color=e62525&title_color=133e66&bg_color=f5f5f5">
     </iframe>
   </div>
+
+<div class="amazonRightItem">
+  <iframe style="width:110px;height:200px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=qf_sp_asin_til&ad_type=product_link&tracking_id=projectgaea21-20&marketplace=amazon&amp;region=US&placement=B0872XG1BR&asins=B0872XG1BR&linkId=3efefe533405b4cdb609609e58bdf363&show_border=true&link_opens_in_new_window=true&price_color=e62525&title_color=133e66&bg_color=f5f5f5">
+    </iframe>
+    </div>
 
     <div id="mapContainer" class="basemap">
     <!-- <h1>{{ msg }}</h1> -->
@@ -179,9 +195,11 @@ map.on('click', function(e) {
   var popup = new mapboxgl.Popup({ offset: [0, -15] })
     popup.setLngLat(feature.geometry.coordinates)
     if (feature.properties.street_address != undefined) {
-      popup.setHTML('<h3>' + "Walmart" + '</h3><p>' + feature.properties.street_address + '</p><p>' + feature.properties.city + ", " + feature.properties.state + '</p>')
+      popup.setHTML('<h3>' + "Walmart" + '</h3><p>' + feature.properties.street_address + '</p><p>' +
+       feature.properties.city + ", " + feature.properties.state + '</p>')
     } else {
-      popup.setHTML('<h3>' + "Target" + '</h3><p>' + feature.properties["Address.AddressLine1"] + '</p><p>' + feature.properties["Address.City"] + ", " + feature.properties["Address.Subdivision"] + '</p>')
+      popup.setHTML('<h3>' + "Target" + '</h3><p>' + feature.properties["Address.AddressLine1"] +
+       '</p><p>' + feature.properties["Address.City"] + ", " + feature.properties["Address.Subdivision"] + '</p>')
     }
     // popup.setHTML('<h3>' + feature.properties.street_address + '</h3><p>' + feature.properties.city + '</p>')
     popup.addTo(map);
@@ -227,6 +245,7 @@ window.onclick = function(event) {
   margin-left: 10%;
   color: #1a89ff;
   font-weight: bold;
+  font-family: Verdana;
 }
 
 .outerMap {
@@ -235,7 +254,6 @@ window.onclick = function(event) {
   // color: #0a84ffff;
   color: #b3d7ff;
   padding: 0px;
-
   // text-shadow: 2px 2px rgb(7, 77, 146);
   font-family: Calibri Light, Verdana, Consolas, Papyrus, Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
@@ -243,46 +261,38 @@ window.onclick = function(event) {
   
 }
 
-.amazonLeftItem {
-  float: left;
-  margin-top: 10%;
-  padding-right: 5px;
-  position: absolute;
-  top: 170px;
-  margin-left: 1%;
+.outerMap h3 {
+  font-style: italic;
+  color: #9acaff;
+  margin-top: 0px;
+  padding: 0px;
+  float: top;
+  top: 0px;
 }
-.amazonRightItem {
-  float: right;
-  margin-top: 10%;
-  // padding-right: 80px;
-  // position: absolute;
-  bottom:20px;
-  margin-right: 1%;
-}
-
 
 .dropdown {
   float: left;
-  font-family: Consolas, Arial, Helvetica, sans-serif;
-  text-shadow: 0px 0px white;
+  font-family: Verdana, Calibri Light, Consolas, Arial, Helvetica, sans-serif;
+  // text-shadow: 0px 0px white;
   font-size: 20px;
   text-align: left;
 }
 .dropbtn {
-  background-color: #b3d7ff;
-  color: #4da3ff;
+  background-color: #cde4ff;
+  color: #1a89ff;
   padding: 4px;
-  font-size: 23px;
+  font-size: 20px;
   border: none;
   cursor: pointer;
   /* margin-left: 100px; */
-  font-family: Consolas, Papyrus;
-  font-weight: bold;
+  font-family: Verdana, Calibri, Consolas, Papyrus;
+  // font-weight: 200px;
   border-radius: 5px;
-  margin-left: 15%;
+  margin-left: 45%;
+  margin-top: 5%;
 }
 .dropbtn:hover, .dropbtn:focus {
-  background-color: rgb(6, 75, 145);
+  background-color: #006fe6;
 }
 /* .dropdown {
   position: relative;
@@ -291,18 +301,23 @@ window.onclick = function(event) {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #4da3ff;
-  min-width: 140px;
+  background-color: #3496ff;
+  min-width: 100px;
   overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(95, 146, 197, 0.2);
+  box-shadow: 0px 8px 16px 0px rgba(85, 133, 180, 0.7);
   z-index: 1;
-  font-size: 20px;
+  font-size: 15px;
   text-align: left;
-  font-family: Consolas, Papyrus;
+  font-family: Verdana, Consolas, Papyrus;
+  margin-left: 1.65%;
 }
 .dropdown-content a {
   color: #e6f2ff;
-  padding: 12px 16px;
+  padding-left: 5px;
+  padding-right: 0px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: left;
   text-decoration: none;
   display: block;
 }
@@ -320,11 +335,65 @@ a {
 
 .links {
     margin-left: 77%;
+    padding-top:0%;
+    padding-bottom: 1.25%;
+    font-family: Calibri;
 }
 
 .links router-link:active {
     color: indianred;
 }
 
+.amazonLeftTop {
+  float: left;
+  margin-top: 9%;
+  padding-right: 5px;
+  position: absolute;
+  top: 200px;
+  margin-left: 1.25%;
+}
+
+.amazonLeftItem {
+  float: left;
+  margin-top: 25%;
+  padding-right: 5px;
+  position: absolute;
+  top: 170px;
+  margin-left: 1.25%;
+}
+
+.amazonRightTop {
+  float: right;
+  margin-top: 0%;
+  margin-right: 1.25%;
+  padding-left: 5px;
+  position: absolute;
+  top: 340px;
+  right: 0px;
+
+  // float: left;
+  // margin-top: 9%;
+  // padding-right: 5px;
+  // position: absolute;
+  // top: 200px;
+  // margin-left: 1.25%;
+}
+
+.amazonRightItem {
+  float: right;
+  margin-top: 25%;
+  top:170px;
+  right: 0px;
+  position: absolute;
+  margin-right: 1.25%;
+  padding-left: 5px;
+
+  // float: left;
+  // margin-top: 25%;
+  // padding-right: 5px;
+  // position: absolute;
+  // top: 170px;
+  // margin-left: 1.25%;
+}
 
 </style>

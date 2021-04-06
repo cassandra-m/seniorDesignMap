@@ -70,6 +70,7 @@
     padding-right: 100px;
     padding-bottom: 2px;
     padding-top: 0px;
+    font-family: Verdana;
 }
 
 .aboutPage p {

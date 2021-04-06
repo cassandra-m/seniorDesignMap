@@ -24,7 +24,7 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Verdana, Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -35,6 +35,8 @@ export default {
   width: 100%;
   min-height: 100vh;
   background-color: #1C1C1E;
+  padding-bottom:40px;
+  padding-top: 10px;
 }
 
 /* stuff below added for air quality link */
@@ -44,7 +46,7 @@ export default {
 }
 
 #nav a.router-link-exact-active {
-  color: rgb(240, 48, 240); /*could also try indianred*/
+  color: #1a4fff; /*could also try indianred*/
 }
 
 </style>

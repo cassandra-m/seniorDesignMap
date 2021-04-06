@@ -28,5 +28,19 @@ export default {
 <style scoped>
 .airZipSearch {
     color: #cce5ff;
+    font-family: Verdana;
 }
+
+.airZipSearch h2 {
+    padding-bottom: 3px;
+}
+
+.textbox {
+    padding: 5px;
+}
+
+.submitbutton {
+    padding: 5px;
+}
+
 </style>
