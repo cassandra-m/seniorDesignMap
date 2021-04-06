@@ -161,6 +161,32 @@ export default {
     const nav = new mapboxgl.NavigationControl();
 map.addControl(nav, "top-right");
 
+
+// showing the location when clicking on map
+map.on('click', function(e) {
+  var features = map.queryRenderedFeatures(e.point, {
+    layers: ['modis-c6-usa-contiguous-and-h-340hdp', 'calitarget-39qsvy', 'walmartca-756tj6'] // replace this with the name of the layer
+  });
+
+  if (!features.length) {
+    return;
+  }
+
+  var feature = features[0];
+
+  console.log(feature); //cass debug
+
+  var popup = new mapboxgl.Popup({ offset: [0, -15] })
+    popup.setLngLat(feature.geometry.coordinates)
+    if (feature.properties.street_address != undefined) {
+      popup.setHTML('<h3>' + "Walmart" + '</h3><p>' + feature.properties.street_address + '</p><p>' + feature.properties.city + '</p>')
+    } else {
+      popup.setHTML('<h3>' + "Target" + '</h3><p>' + feature.properties["Address.AddressLine1"] + '</p><p>' + feature.properties["Address.City"] + ", " + feature.properties["Address.Subdivision"] + '</p>')
+    }
+    // popup.setHTML('<h3>' + feature.properties.street_address + '</h3><p>' + feature.properties.city + '</p>')
+    popup.addTo(map);
+});
+
 // const marker = new mapboxgl.Marker()
 //   marker.setLngLat([40,-90])
 //   marker.addTo(map);
