@@ -103,9 +103,9 @@ a {
     <div class="dropdown">
       <button v-on:click="myFunction()" class="dropbtn">Search</button>
       <div id="myDropdown" class="dropdown-content">
-        <a href="#masks">Masks</a>
-        <a href="#filters">Purifiers</a>
-        <a href="#fans">Protection</a>
+        <a href="https://www.amazon.com/s?k=fire+protection+mask&ref=nb_sb_noss_2" target="_blank">Masks</a>
+        <a href="https://www.amazon.com/s?k=air+purifier&ref=nb_sb_noss" target="_blank">Purifiers</a>
+        <a href="https://www.amazon.com/s?k=fire+protection&ref=nb_sb_noss_1" target="_blank">Protection</a>
       </div>
     </div>
 
