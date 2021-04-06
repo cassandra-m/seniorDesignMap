@@ -6,7 +6,7 @@
             <label> Select state:<br/>
             <input type="text" v-model="selected" list="state" />
             <datalist id="state" >
-                <select onchange="plzWork()">
+                <select @change="fetchAPIData()" class="form-control">
                     <option v-for="(stateOpt, indx) in states" :value="stateOpt" v-bind:key="indx" 
                     >
                     <!-- v-on:change="fetchAPIData()" -->
@@ -14,7 +14,7 @@
                     <!-- v-on:select="fetchAPIData()" -->
                     <!-- v-on:click="setState(stateOpt)" -->
                     <!-- v-bind:placeholder="fetchAPIData()" -->
-                    {{ stateOpt }}
+                    <!-- {{ stateOpt }} -->
                     </option>
                 </select>
             </datalist>
@@ -128,7 +128,7 @@ computed: {
         },
 
         fetchAPIData( ) { 
-            console.log("YOU MADE IT");
+            // console.log("YOU MADE IT");
             this.responseAvailable = false;
             fetch("https://api.weather.gov/alerts?status=actual&message_type=alert&region_type=land&severity=severe", {
                 "method": "GET",
