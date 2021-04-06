@@ -6,20 +6,26 @@
             <label> Select state:<br/>
             <input type="text" v-model="selected" list="state" />
             <datalist id="state" >
-                <select>
+                <select onchange="plzWork()">
                     <option v-for="(stateOpt, indx) in states" :value="stateOpt" v-bind:key="indx" 
-                    v-on:click="setState(stateOpt)">
+                    >
+                    <!-- v-on:change="fetchAPIData()" -->
+                    <!-- v-on:click="fetchAPIData()" -->
+                    <!-- v-on:select="fetchAPIData()" -->
+                    <!-- v-on:click="setState(stateOpt)" -->
+                    <!-- v-bind:placeholder="fetchAPIData()" -->
                     {{ stateOpt }}
                     </option>
                 </select>
             </datalist>
             </label>
-            <p>{{stateSelected}}</p>
+            <!-- <p>{{stateSelected}}</p> -->
         </div>
 
-        <h3>Showing alerts for {{selectedState}}</h3>
+        <h3>Showing alerts for {{selected}}</h3>
         <ul class="alertsUl">
-            <li class = "alertsLi" v-for="(item, index) in result" v-bind:key="index">{{item}}</li>
+            <li class = "alertsLi" v-for="(item, index) in result" v-bind:key="index"
+            >{{item}}</li>
         </ul>
     </div>
 </template>
@@ -33,7 +39,7 @@ export default {
         return {
             responseAvailable: false,
             apiKey: '<YOUR_RAPIDAPI_KEY>',
-            selectedState: 'CA', //cass note to self need to have this start out blank
+           // selectedState: "CA", //cass note to self need to have this start out blank
             states : [ "AK",
                         "AL",
                         "AR",
@@ -97,12 +103,32 @@ export default {
 // cass added
 computed: {
         stateSelected() {
-            return this.states.find( i => i.value == this.selected );
+            // console.log(this.selected);
+            // return this.states.find( i => i.value == this.selected );
+            return this.selected;
         }
+
+
+        // setState(item) {
+        //     console.log(item); //cass debug
+        //     this.selectedState = item;
+        //     //console.log(this.selectedState); //cass debug
+        //     this.fetchAPIData();
+        //     return item;
+        // }
+
     },
 
+    
+
     methods: {
+
+        plzWork() {
+            console.log("cool");
+        },
+
         fetchAPIData( ) { 
+            console.log("YOU MADE IT");
             this.responseAvailable = false;
             fetch("https://api.weather.gov/alerts?status=actual&message_type=alert&region_type=land&severity=severe", {
                 "method": "GET",
@@ -121,7 +147,7 @@ computed: {
                 var result = [];
                 var c = 0;
                 for (var i = 0; i < response.features.length; i++) {
-                    if (response.features[i].properties.senderName.includes(this.selectedState)){
+                    if (response.features[i].properties.senderName.includes(this.selected)){ //was selectedState
                         result[c]= JSON.stringify(response.features[i].properties.headline);
                         c++;
                     }
@@ -138,10 +164,12 @@ computed: {
                 console.log(err);
             });
         },
-        setState(item) {
-            this.selectedState = item;
-            this.fetchAPIData();
-        }
+        // setState(item) {
+        //     //console.log(item); //cass debug
+        //     this.selectedState = item;
+        //     console.log(this.selectedState); //cass debug
+        //    this.fetchAPIData(); //cass removed
+        // }
     },
     beforeMount(){
         this.fetchAPIData()

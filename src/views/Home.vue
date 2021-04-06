@@ -96,6 +96,7 @@ a {
     </div>
     <!-- addition for air quality end -->
     <h1>{{ msg }}</h1>
+    
     <div class="dropdown">
       <button v-on:click="myFunction()" class="dropbtn">Search</button>
       <div id="myDropdown" class="dropdown-content">
@@ -104,9 +105,21 @@ a {
         <a href="#fans">Fans</a>
       </div>
     </div>
+
+<!-- amazon stuff -->
+<div class="amazonLeftItem">
+<iframe style="width:110px;height:200px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=qf_sp_asin_til&ad_type=product_link&tracking_id=projectgaea21-20&marketplace=amazon&amp;region=US&placement=B08V59764B&asins=B08V59764B&linkId=a901b50219778f046082de3c78089a19&show_border=true&link_opens_in_new_window=true&price_color=e62525&title_color=133e66&bg_color=faf2f2">
+    </iframe>
+</div>
+<div class="amazonRightItem">
+    <iframe style="width:110px;height:200px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=qf_sp_asin_til&ad_type=product_link&tracking_id=projectgaea21-20&marketplace=amazon&amp;region=US&placement=B07T9PQ5J7&asins=B07T9PQ5J7&linkId=f9df6a1fe73d067b2b9645ff9d071835&show_border=true&link_opens_in_new_window=true&price_color=e62525&title_color=133e66&bg_color=f5f5f5">
+    </iframe>
+  </div>
+
     <div id="mapContainer" class="basemap">
     <!-- <h1>{{ msg }}</h1> -->
     </div>
+    
   </div>
 </template>
 
@@ -126,6 +139,7 @@ export default {
   data() {
     return {
       accessToken: "pk.eyJ1IjoiY2Fzcy1tIiwiYSI6ImNrbW9qM3F5bDBoZzAycGxoZmE5aXdoMWwifQ.672BmyQ9ouSrBbR5z7iJQg",
+      // accessToken: "pk.eyJ1IjoiY2Fzcy1tIiwiYSI6ImNrbW9qM3F5bDBoZzAycGxoZmE5aXdoMWwifQ.672BmyQ9ouSrBbR5z7iJQg",
     };
   },
   mounted() {
@@ -134,6 +148,7 @@ export default {
     const map = new mapboxgl.Map({
       container: "mapContainer",
       style: "mapbox://styles/cass-m/ckmtv2tzx4e8817nk7ng9gve4",
+      // style: "mapbox://styles/cass-m/ckn4w6mrc022u18ph6pxa5aed",
       // center: [103.811279, 1.345399],
       center: [970, 40],
       zoom: 4,
@@ -198,6 +213,23 @@ window.onclick = function(event) {
   text-align: center;
   font-size: 20px;
   
+}
+
+.amazonLeftItem {
+  float: left;
+  margin-top: 10%;
+  padding-right: 5px;
+  position: absolute;
+  top: 170px;
+  margin-left: 1%;
+}
+.amazonRightItem {
+  float: right;
+  margin-top: 10%;
+  // padding-right: 80px;
+  // position: absolute;
+  bottom:20px;
+  margin-right: 1%;
 }
 
 

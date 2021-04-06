@@ -100,6 +100,7 @@ export default {
   data() {
     return {
       accessToken: "pk.eyJ1IjoiY2Fzcy1tIiwiYSI6ImNrbW9qM3F5bDBoZzAycGxoZmE5aXdoMWwifQ.672BmyQ9ouSrBbR5z7iJQg",
+      // accessToken: "pk.eyJ1IjoiY2Fzcy1tIiwiYSI6ImNrbW9qM3F5bDBoZzAycGxoZmE5aXdoMWwifQ.672BmyQ9ouSrBbR5z7iJQg",
     };
   },
   mounted() {
@@ -108,6 +109,7 @@ export default {
     const map = new mapboxgl.Map({
       container: "mapContainer",
       style: "mapbox://styles/cass-m/ckmtv2tzx4e8817nk7ng9gve4",
+      // style: "mapbox://styles/cass-m/ckn4w6mrc022u18ph6pxa5aed",
       // center: [103.811279, 1.345399],
       center: [970, 40],
       zoom: 4,
