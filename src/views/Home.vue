@@ -174,12 +174,12 @@ map.on('click', function(e) {
 
   var feature = features[0];
 
-  console.log(feature); //cass debug
+  //console.log(feature); //cass debug
 
   var popup = new mapboxgl.Popup({ offset: [0, -15] })
     popup.setLngLat(feature.geometry.coordinates)
     if (feature.properties.street_address != undefined) {
-      popup.setHTML('<h3>' + "Walmart" + '</h3><p>' + feature.properties.street_address + '</p><p>' + feature.properties.city + '</p>')
+      popup.setHTML('<h3>' + "Walmart" + '</h3><p>' + feature.properties.street_address + '</p><p>' + feature.properties.city + ", " + feature.properties.state + '</p>')
     } else {
       popup.setHTML('<h3>' + "Target" + '</h3><p>' + feature.properties["Address.AddressLine1"] + '</p><p>' + feature.properties["Address.City"] + ", " + feature.properties["Address.Subdivision"] + '</p>')
     }
@@ -225,6 +225,8 @@ window.onclick = function(event) {
   height: 500px;
   background-color: #1C1C1E;
   margin-left: 10%;
+  color: #1a89ff;
+  font-weight: bold;
 }
 
 .outerMap {
@@ -234,7 +236,7 @@ window.onclick = function(event) {
   color: #b3d7ff;
   padding: 0px;
 
-  text-shadow: 2px 2px rgb(7, 77, 146);
+  // text-shadow: 2px 2px rgb(7, 77, 146);
   font-family: Calibri Light, Verdana, Consolas, Papyrus, Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
   font-size: 20px;
