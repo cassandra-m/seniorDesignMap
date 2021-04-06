@@ -35,7 +35,7 @@ export default {
   width: 100%;
   min-height: 100vh;
   background-color: #1C1C1E;
-  padding-bottom:40px;
+  padding-bottom: 80px;
   padding-top: 10px;
 }
 

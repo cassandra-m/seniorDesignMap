@@ -235,7 +235,7 @@ window.onclick = function(event) {
 
 
 .outerMap img {
-  padding: 20px;
+  padding: 5px;
   position: absolute;
   left: 45%;
   bottom: 0;
